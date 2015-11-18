@@ -7,3 +7,9 @@ class Manager(models.Model):
     total=models.IntegerField(default=0)
     name=models.CharField(max_length=200)
     weight=models.IntegerField(default=0)
+
+class User(models.Model):
+    name =models.CharField(max_length=200)
+    age =models.IntegerField()
+    
+        
