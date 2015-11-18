@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    return HttpResponse("Hello")
+    return render(request, 'dbManager/index.html')
 def login(request):
     return render(request,'dbManager/login.html')
 def login1(request):
