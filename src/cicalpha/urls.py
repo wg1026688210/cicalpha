@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views import defaults
+from django.http import request
+
 
 urlpatterns = [
+    url(r'^grappelli/',include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^dbManager/',include('dbManager.urls',namespace='dbManager')),
 ]

@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from . import views
 urlpatterns = [
     url(r'^$',views.index,name='index'),
-    url(r'^login/$',views.login,name='login'),
+    url(r'^login/$',views.flogin,name='login'),
     url(r'^login1/$',views.login1,name='login1'),
+    url(r'^quit/$', views.quit),
 ]
