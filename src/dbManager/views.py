@@ -8,12 +8,13 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
 from cicalpha import settings
+from django.views.decorators.csrf import csrf_exempt
+
 def index(request):
-    if not request.user.is_authenticated():
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
     return render(request, 'dbManager/index.html')
 def flogin(request):
     return render(request,'dbManager/login.html')
+@csrf_exempt
 def login1(request):
     username=request.POST['name']
     password=request.POST['Password']
