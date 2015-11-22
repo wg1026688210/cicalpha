@@ -11,5 +11,10 @@ class Manager(models.Model):
 class User(models.Model):
     name =models.CharField(max_length=200)
     age =models.IntegerField()
-    
+class Menu(models.Model):
+    parentid=models.IntegerField()
+    level =models.IntegerField()
+    name =models.CharField(max_length=200)
+    url =models.CharField(max_length=200)
+    isenable =models.IntegerField(default=0)
         

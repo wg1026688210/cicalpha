@@ -1,0 +1,54 @@
+{% extends 'dbManager/base.html'%}
+{% load staticfiles %}
+
+<meta charset="utf-8">
+{%block content%}
+<div class="row">
+                 <div class="col-xs-12">
+              <div class="box box-info">
+                <div class="box-header with-border">
+                <form  method="post" action="{%url 'dbManager:menu_update' %}">
+                {%csrf_token%}
+                  <h3 class="box-title">添加子菜单</h3>
+                </div>
+                <div class="box-body">
+                    <div class="col-xs-12">
+                      <input type="text" class="form-control" placeholder="url" name="url" value="{{menu.url}}">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-12">
+                      <input type="text" class="form-control" placeholder="name"  name="name" value="{{menu.name}}">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-6">
+                      <input type="text" class="form-control" placeholder="isenable" name="isenable" value="{{menu.isenable}}">
+                    </div>  
+                    <div class="col-xs-6">
+                      <input type="text" class="form-control" placeholder="parentid" name="parentid"  value="{{menu.parentid}}">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-6">
+                      <input type="text" class="form-control" placeholder="level" name="level"  value="{{menu.level}}">
+                    </div>
+                    <div class="col-xs-6">
+                    <input type="hidden" name="id" value="{{menu.id}}">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="box-footer">
+                    <div class="col-xs-6">
+                    <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                    <div class="col-xs-6">
+                    <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                    </div>
+                  </div><!-- /.box-footer -->
+                    </div>
+                    </form>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+              {%endblock%}

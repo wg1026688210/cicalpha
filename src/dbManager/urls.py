@@ -20,4 +20,9 @@ urlpatterns = [
     url(r'^login/$',views.flogin,name='login'),
     url(r'^login1/$',views.login1,name='login1'),
     url(r'^quit/$', views.quit),
+    url(r'^menu/query/$',views.QueryView.as_view(),name='menu_query'),
+    url(r'^menu/(?P<id>[0-9]+)/delete/$',views.delete,name='menu_delete'),
+    url(r'^menu/insert/$',views.insert,name='menu_insert'),
+    url(r'^menu/(?P<id>[0-9]+)/queryone/$',views.queryone,name='menu_queryone'),
+    url(r'^menu/update/$',views.update,name='menu_update'), 
 ]

@@ -1,0 +1,98 @@
+{% extends 'dbManager/base.html' %}
+{% load staticfiles %}
+<meta charset="utf-8">
+{%block content%}
+ <section class="content">
+ <div class="row">
+                 <div class="col-xs-12">
+              <div class="box box-info">
+                <div class="box-header with-border">
+                <form  method="post" action="{%url 'dbManager:menu_insert' %}">
+                {%csrf_token%}
+                  <h3 class="box-title">添加子菜单</h3>
+                </div>
+                <div class="box-body">
+                    <div class="col-xs-12">
+                      <input type="text" class="form-control" placeholder="url" name="url">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-12">
+                      <input type="text" class="form-control" placeholder="name" name="name">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-6">
+                      <input type="text" class="form-control" placeholder="isenable" name="isenable">
+                    </div>  
+                    <div class="col-xs-6">
+                      <input type="text" class="form-control" placeholder="parentid" name="parentid">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-6">
+                      <input type="text" class="form-control" placeholder="level" name="level">
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="box-footer">
+                    <div class="col-xs-6">
+                    <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                    <div class="col-xs-6">
+                    <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                    </div>
+                  </div><!-- /.box-footer -->
+                    </div>
+                    </form>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Hover Data Table</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+			            <th>Parentid</th>
+			            <th>Level</th>
+			            <th>Name</th>
+			            <th>Url</th>
+			            <th>isEnable</th>
+			            <th>删除</th>
+			            <th>修改</th>
+			            </tr>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for q in latest_question_list %}
+                     <tr>
+		             <td>{{q.id}}</td>
+		             <td>{{q.parentid}}</td>
+		             <td>{{q.level}}</td>
+		             <td>{{q.name}}</td>
+		             <td>{{q.url}}</td>
+		             <td>{{q.isenable}}</td>
+		             <td><a href="{% url 'dbManager:menu_delete' q.id%}">delete</a></td>
+		             <td><a href="{% url 'dbManager:menu_queryone' q.id%}">update</a></td>
+		             </tr> 
+		             {% endfor %}
+                    </tbody>
+                    
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+              </div>
+              </div>
+              </section>
+              
+            
+              
+             
+               {% endblock %}
+
